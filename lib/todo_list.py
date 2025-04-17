@@ -3,19 +3,14 @@ class TodoList:
         self.list = []
 
     def add(self, todo):
-        self.list.append ({"task": todo, "completed": False})
+        self.list.append(todo)
 
     def incomplete(self):
-        return self.list
+        return [todo for todo in self.list if not todo.complete]
 
     def complete(self):
-        # Returns:
-        #   A list of Todo instances representing the todos that are complete
-        pass
+        return [todo for todo in self.list if todo.complete]
 
     def give_up(self):
-        # Returns:
-        #   Nothing
-        # Side-effects:
-        #   Marks all todos as complete
-        pass
+        for todo in self.list:
+            todo.mark_complete()
